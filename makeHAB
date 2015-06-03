@@ -1,0 +1,57 @@
+#!/bin/bash
+
+#
+# This script will update your OpenHAB 2 installation and add any OpenHAB 1 addons that you want to bring across
+# The script assumes that the OpenHAB 2 is already installed.  Please shut it down and then run the script
+# If OpenHAB 2 is not already installed, create the directories ahead of time, and it will install OpenHAB 2
+#
+# This script will also update or install Smarthome Designer if desired.  Please make sure your work is saved
+#  before updating.
+#
+# v1.1 Jim Howard
+#
+
+if [ `whoami` != 'root' ]
+	then
+	echo "run as root or execute with sudo"
+	exit 1
+fi
+
+# The location for archive downloads
+DOWN="/opt/DOWN"
+# The location of the openHAB installation
+HAB="/opt/openHAB"
+# The location of SmartHome Designer
+SMD="/opt/ohdesign"
+
+cd $DOWN
+
+wget -N https://openhab.ci.cloudbees.com/job/openHAB2/lastSuccessfulBuild/artifact/distribution/target/distribution-2.0.0-SNAPSHOT-runtime.zip
+wget -N https://openhab.ci.cloudbees.com/job/openHAB2/lastSuccessfulBuild/artifact/distribution/target/distribution-2.0.0-SNAPSHOT-addons.zip
+
+# Uncomment the following line if Habmin2 is desired
+wget -N --content-disposition --no-check-certificate https://raw.githubusercontent.com/cdjackson/HABmin2/master/output/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.14.jar
+
+# Uncomment the following line if SmartHome Designer is desired
+wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
+
+cd $HAB
+rm -rf $HAB/addons/* $HAB/runtime/server
+
+unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-runtime.zip
+
+# clear up some windows clutter not needed with *nix systems
+rm $HAB/*.bat
+
+cd $HAB
+#add any OpenHAB 2 bindings to the list in the following line.  Make sure any wildcards select only the binding you want
+unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *http*.jar *network*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *sonos*.jar *hue*.jar *yahoo*.jar
+
+# uncomment the following line if the habmin2 jar is to be copied in
+cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.14.jar $HAB/addons
+
+# uncomment the following 4 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
+
+cd $SMD
+rm -rf $SMD/p2/* $SMD/plugins 
+unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
