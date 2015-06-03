@@ -8,5 +8,6 @@ makeHAB - A script to download and extract the following archives:
 	OpenHAB 1.8 current addons
 	Eclipse SmartHome Designer 0.8 current snapshot
 
-
+	Modify the script as appropriate for your system.
+	Configurable variables are located at the top.
 
