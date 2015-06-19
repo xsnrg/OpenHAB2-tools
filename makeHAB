@@ -45,7 +45,7 @@ rm $HAB/*.bat
 
 cd $HAB
 #add any OpenHAB 2 bindings to the list in the following line.  Make sure any wildcards select only the binding you want
-unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *http*.jar *network*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *sonos*.jar *hue*.jar *yahoo*.jar
+unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *http*.jar *network*.jar *insteon*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *yahoo*.jar
 
 # uncomment the following line if the habmin2 jar is to be copied in
 cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar $HAB/addons
