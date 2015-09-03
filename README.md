@@ -12,3 +12,5 @@ makeHAB - A script to download and extract the following archives:
 	Modify the script as appropriate for your system.
 	Configurable variables are located at the top.
 
+	Directories will be created if they do not exist provided the user has permission
+

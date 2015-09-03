@@ -8,14 +8,8 @@
 # This script will also update or install Smarthome Designer if desired.  Please make sure your work is saved
 #  before updating.
 #
-# v1.1 Jim Howard
+# v1.2 Jim Howard
 #
-
-if [ `whoami` != 'root' ]
-	then
-	echo "run as root or execute with sudo"
-	exit 1
-fi
 
 # The location for archive downloads
 DOWN="/opt/DOWN"
@@ -23,6 +17,12 @@ DOWN="/opt/DOWN"
 HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
+
+#create directories if they do not exist
+for each in $SMD $HAB $DOWN
+ do
+    mkdir -p $each
+ done
 
 cd $DOWN
 
@@ -45,7 +45,7 @@ rm $HAB/*.bat
 
 cd $HAB
 #add any OpenHAB 2 bindings to the list in the following line.  Make sure any wildcards select only the binding you want
-unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *xmpp*.jar *http*.jar *network*.jar *insteon*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *yahoo*.jar
+unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *denon*.jar *xmpp*.jar *http*.jar *network*.jar *insteon*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *yahoo*.jar
 
 # uncomment the following line if the habmin2 jar is to be copied in
 cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar $HAB/addons
