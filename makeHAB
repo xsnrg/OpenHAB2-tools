@@ -31,8 +31,7 @@ wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome
 
 cd $HAB
 rm -rf $HAB/runtime
-
-unzip -o $DOWN/openhab-online-2.0.0-SNAPSHOT.zip
+unzip -n $DOWN/openhab-online-2.0.0-SNAPSHOT.zip
 
 # clear up some windows clutter not needed with *nix systems
 rm $HAB/*.bat
@@ -48,6 +47,6 @@ cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar $HAB/addons
 
 # uncomment the following 4 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
 
-cd $SMD
-rm -rf $SMD/p2/* $SMD/plugins 
-unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
+#cd $SMD
+#rm -rf $SMD/p2/* $SMD/plugins 
+#unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
