@@ -31,22 +31,22 @@ wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome
 
 cd $HAB
 rm -rf $HAB/runtime
+rm -r $HAB/userdata/cache/*
+rm -r $HAB/userdata/tmp/*
+
 unzip -n $DOWN/openhab-online-2.0.0-SNAPSHOT.zip
 
 # clear up some windows clutter not needed with *nix systems
 rm $HAB/*.bat
 
 cd $HAB
-#add any OpenHAB 2 bindings to the list in the following line.  Make sure any wildcards select only the binding you want
-#unzip -o $DOWN/distribution-2.0.0-SNAPSHOT-addons.zip *xmpp*.jar *http*.jar *network*.jar *insteon*.jar *rrd*.jar *logging*.jar *action.mail*.jar *binding.weather*.jar *zwave*.jar *yahoo*.jar *sonos*.jar *hue*.jar *nest*.jar
-# This is not needed any longer as all addons can be installed with the PaperUI.  For defaulting addons, exit the service/addons.cfg
 
 # uncomment the following line if the habmin2 jar is to be copied in
 # this will need to be updated when the new habmin is available
 cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar $HAB/addons
 
-# uncomment the following 4 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
+# uncomment the following 3 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
 
-#cd $SMD
-#rm -rf $SMD/p2/* $SMD/plugins 
-#unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
+cd $SMD
+rm -rf $SMD/p2/* $SMD/plugins 
+unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
