@@ -18,13 +18,15 @@ DOWN="/opt/DOWN"
 HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
+# Update this variable if the name of the Habmin2 jar changes
+H2JAR="org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.1.0.jar"
 
 cd $DOWN
 
 wget -N https://openhab.ci.cloudbees.com/job/openHAB-Distribution/lastSuccessfulBuild/artifact/distributions/openhab-online/target/openhab-online-2.0.0-SNAPSHOT.zip
 
 # Uncomment the following line if Habmin2 is desired
-#wget -N --content-disposition --no-check-certificate https://raw.githubusercontent.com/cdjackson/HABmin2/master/output/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar
+wget -N --content-disposition --no-check-certificate https://github.com/cdjackson/HABmin2/raw/master/output/$H2JAR
 
 # Uncomment the following line if SmartHome Designer is desired
 wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
@@ -42,11 +44,9 @@ rm $HAB/*.bat
 cd $HAB
 
 # uncomment the following line if the habmin2 jar is to be copied in
-# this will need to be updated when the new habmin is available
-#cp $DOWN/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.0.15.jar $HAB/addons
+cp $DOWN/$H2JAR $HAB/addons
 
 # uncomment the following 3 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
-
 cd $SMD
 rm -rf $SMD/p2/* $SMD/plugins 
 unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
