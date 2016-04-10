@@ -19,7 +19,7 @@ HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
 # Update this variable if the name of the Habmin2 jar changes
-H2JAR="org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.1.3.jar"
+H2JAR="org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.1.4.jar"
 
 cd $DOWN
 
