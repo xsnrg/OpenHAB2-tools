@@ -29,7 +29,7 @@ wget -N https://openhab.ci.cloudbees.com/job/openHAB-Distribution/lastSuccessful
 wget -N --content-disposition --no-check-certificate https://github.com/cdjackson/HABmin2/raw/master/output/$H2JAR
 
 # Uncomment the following line if SmartHome Designer is desired
-wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
+wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome-incubation-0.9.0-SNAPSHOT-designer-linux64.zip
 
 cd $HAB
 rm -rf $HAB/runtime
