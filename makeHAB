@@ -50,4 +50,4 @@ cp $DOWN/$H2JAR $HAB/addons
 # uncomment the following 3 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
 cd $SMD
 rm -rf $SMD/p2/* $SMD/plugins 
-unzip -o $DOWN/eclipsesmarthome-incubation-0.8.0-SNAPSHOT-designer-linux64.zip
+unzip -o $DOWN/eclipsesmarthome-incubation-0.9.0-SNAPSHOT-designer-linux64.zip
