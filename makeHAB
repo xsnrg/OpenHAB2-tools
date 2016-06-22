@@ -44,7 +44,7 @@ rm $HAB/*.bat
 cd $HAB
 
 # uncomment the following 2 lines if the habmin2 jar is to be copied in
-rm $HAB/addons/org.openhab.ui.habmin_2*
+rm $HAB/addons/org.openhab.ui.habmin_0.1.*
 cp $DOWN/$H2JAR $HAB/addons
 
 # uncomment the following 3 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
