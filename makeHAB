@@ -18,8 +18,8 @@ HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
 
-mkdir -p $DOWN || echo "cannot make dir $DOWN";exit 1
-mkdir -p $HAB  || echo "cannot make dir $HAB ";exit 1
+mkdir -p $DOWN || (echo "cannot make dir $DOWN";exit 1)
+mkdir -p $HAB  || (echo "cannot make dir $HAB ";exit 1)
 
 #
 # OpenHAB2 section
@@ -41,7 +41,7 @@ rm $HAB/*.bat
 # Designer section
 #
 # uncomment the following 6 lines if Eclipse Designer is also to be updated.  Be sure to save your work before updating.
-mkdir -p $SMD || echo "cannot make dir $DOWN";exit 1
+mkdir -p $SMD || (echo "cannot make dir $DOWN";exit 1)
 cd $DOWN
 wget -N http://download.eclipse.org/smarthome/nightly-snapshots/eclipsesmarthome-incubation-0.9.0-SNAPSHOT-designer-linux64.zip
 cd $SMD
