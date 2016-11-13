@@ -28,6 +28,7 @@ cd $DOWN
 wget -N https://openhab.ci.cloudbees.com/job/openHAB-Distribution/lastSuccessfulBuild/artifact/distributions/openhab-online/target/openhab-online-2.0.0-SNAPSHOT.zip || (echo "failure downloading OH2";exit 1)
 
 cd $HAB
+rm -f $HAB/start*.sh
 rm -rf $HAB/runtime
 rm -r $HAB/userdata/cache/*
 rm -r $HAB/userdata/tmp/*
