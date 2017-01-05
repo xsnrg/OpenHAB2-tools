@@ -7,6 +7,7 @@
 # This script will also update or install Smarthome Designer if desired.  Please make sure your work is saved
 #  before updating.
 #
+# v2.1 some files in userdata/etc need to be removed to support updates to karaf
 # v2 Greatly simplified for the new OpenHAB2 Karaf online distribution
 # v1.1 Jim Howard
 #
@@ -17,6 +18,8 @@ DOWN="/opt/DOWN"
 HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
+# the list of files in userdata/etc to remove
+DELFILES="config.properties custom.properties distribution.info jre.properties keys.properties org.apache.karaf.features.cfg org.apache.karaf.features.repos.cfg org.apache.karaf.management.cfg org.ops4j.pax.web.cfg profile.cfg startup.properties system.properties"
 
 mkdir -p $DOWN || (echo "cannot make dir $DOWN";exit 1)
 mkdir -p $HAB  || (echo "cannot make dir $HAB ";exit 1)
@@ -32,6 +35,10 @@ rm -f $HAB/start*.sh
 rm -rf $HAB/runtime
 rm -r $HAB/userdata/cache/*
 rm -r $HAB/userdata/tmp/*
+for each in $DELFILES
+    do
+    rm -f $HAB/userdata/etc/$each
+    done
 
 unzip -n $DOWN/openhab-online-2.0.0-SNAPSHOT.zip
 
