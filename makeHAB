@@ -40,7 +40,7 @@ for each in $DELFILES
     rm -f $HAB/userdata/etc/$each
     done
 
-unzip -n $DOWN/openhab-online-2.0.0-SNAPSHOT.zip
+unzip -n $DOWN/openhab-2.0.0-SNAPSHOT.zip
 
 # clear up some windows clutter not needed with *nix systems
 rm $HAB/*.bat
