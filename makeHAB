@@ -7,11 +7,14 @@
 # This script will also update or install Smarthome Designer if desired.  Please make sure your work is saved
 #  before updating.
 #
+# v2.2 updated for OpenHAB version number changes
 # v2.1 some files in userdata/etc need to be removed to support updates to karaf
 # v2 Greatly simplified for the new OpenHAB2 Karaf online distribution
 # v1.1 Jim Howard
 #
 
+#The SNAPSHOT version to pull from cloudbees
+vHAB=2.1.0
 # The location for archive downloads
 DOWN="/opt/DOWN"
 # The location of the openHAB installation
@@ -28,7 +31,7 @@ mkdir -p $HAB  || (echo "cannot make dir $HAB ";exit 1)
 # OpenHAB2 section
 #
 cd $DOWN
-wget -N https://openhab.ci.cloudbees.com/job/openHAB-Distribution/lastSuccessfulBuild/artifact/distributions/openhab/target/openhab-2.0.0-SNAPSHOT.zip || (echo "failure downloading OH2";exit 1)
+wget -N https://openhab.ci.cloudbees.com/job/openHAB-Distribution/lastSuccessfulBuild/artifact/distributions/openhab/target/openhab-$vHAB-SNAPSHOT.zip || (echo "failure downloading OH2";exit 1)
 
 cd $HAB
 rm -f $HAB/start*.sh
@@ -40,7 +43,7 @@ for each in $DELFILES
     rm -f $HAB/userdata/etc/$each
     done
 
-unzip -n $DOWN/openhab-2.0.0-SNAPSHOT.zip
+unzip -n $DOWN/openhab-$vHAB-SNAPSHOT.zip
 
 # clear up some windows clutter not needed with *nix systems
 rm $HAB/*.bat
