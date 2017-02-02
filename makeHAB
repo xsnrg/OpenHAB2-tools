@@ -38,6 +38,7 @@ rm -f $HAB/start*.sh
 rm -rf $HAB/runtime
 rm -r $HAB/userdata/cache/*
 rm -r $HAB/userdata/tmp/*
+rm -r $HAB/userdata/config/*
 for each in $DELFILES
     do
     rm -f $HAB/userdata/etc/$each
