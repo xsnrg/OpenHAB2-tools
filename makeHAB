@@ -22,7 +22,7 @@ HAB="/opt/openHAB"
 # The location of SmartHome Designer
 SMD="/opt/ohdesign"
 # the list of files in userdata/etc to remove
-DELFILES="config.properties custom.properties distribution.info jre.properties keys.properties org.apache.karaf.features.cfg org.apache.karaf.features.repos.cfg org.apache.karaf.management.cfg org.ops4j.pax.web.cfg profile.cfg startup.properties system.properties branding.properties"
+DELFILES="config.properties custom.properties distribution.info jre.properties keys.properties org.apache.karaf.features.cfg org.apache.karaf.features.repos.cfg org.apache.karaf.management.cfg org.ops4j.pax.web.cfg profile.cfg startup.properties system.properties branding.properties branding-ssh.properties"
 
 mkdir -p $DOWN || (echo "cannot make dir $DOWN";exit 1)
 mkdir -p $HAB  || (echo "cannot make dir $HAB ";exit 1)
