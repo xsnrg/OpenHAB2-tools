@@ -14,7 +14,7 @@
 #
 
 #The SNAPSHOT version to pull from cloudbees
-vHAB=2.1.0
+vHAB=2.2.0
 # The location for archive downloads
 DOWN="/opt/DOWN"
 # The location of the openHAB installation
