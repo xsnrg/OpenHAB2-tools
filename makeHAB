@@ -7,6 +7,7 @@
 # This script will also update or install Smarthome Designer if desired.  Please make sure your work is saved
 #  before updating.
 #
+# v2.3 updated for OpenHAB version number changes
 # v2.2 updated for OpenHAB version number changes
 # v2.1 some files in userdata/etc need to be removed to support updates to karaf
 # v2 Greatly simplified for the new OpenHAB2 Karaf online distribution
@@ -14,7 +15,7 @@
 #
 
 #The SNAPSHOT version to pull from cloudbees
-vHAB=2.2.0
+vHAB=2.3.0
 # The location for archive downloads
 DOWN="/opt/DOWN"
 # The location of the openHAB installation
